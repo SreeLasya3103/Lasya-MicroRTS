@@ -67,6 +67,12 @@ public class LasyaBot extends AbstractionLayerAI {
         }
     }
 
+    public class GatewayServer {
+        public void start() {
+            throw new UnsupportedOperationException("Unimplemented method 'start'");
+        }
+    }
+
     private class Barracks {
         public Barracks() {
             barracks.forEach(barrack -> {
