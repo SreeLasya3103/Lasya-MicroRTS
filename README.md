@@ -2,7 +2,7 @@
 
 -	The changes in Lasyabot.java are significantly based on the BasicRush Implementation by Damon.
 -	My changes mainly are about the unit production from barracks, particularly focusing on ranged units.
-- Initially there was no specific logic for producing ranged units in waves or groups , so i tried to introduce a wave-based production strategy for ranged units(Similar to Hunter, where i took his units 4 and 3).
+- Initially there was no specific logic for producing ranged units in waves or groups , so i tried to introduce a wave-based production strategy for ranged units(Where i took units 4 and 3).
 - Ranged units are produced in alternating waves of 4 and 3 units, depending on the available resources and a counter that tracks the number of waves produced.
 - This strategy is encapsulated within the Barracks class's assignTask method.
 - This change aims to optimize resource use and enhance strategic deployment of ranged units.
