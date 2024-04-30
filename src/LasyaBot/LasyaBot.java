@@ -1,5 +1,3 @@
-//took reference from Damon's initial bot https://github.com/EnigmaOneOfficial/MicroRTS-Bots basing on his BasicRush technique , i tried changing something with ranged units in the Ranged class. Please find the detailed explanation in my README.
-
 package LasyaBot;
 
 import java.util.ArrayList;
@@ -62,7 +60,7 @@ public class LasyaBot extends AbstractionLayerAI {
                             : player.getResources() >= WORKER.cost;
 
             if (shouldTrain && defenders.size() == 0) {
-                
+
                 train(base, WORKER);
                 return;
             }
@@ -91,7 +89,7 @@ public class LasyaBot extends AbstractionLayerAI {
                 train(barrack, LIGHT);
                 return;
             }
-        } 
+        }
     }
 
     private class Workers {
@@ -260,7 +258,7 @@ public class LasyaBot extends AbstractionLayerAI {
         private void assignTask(Unit ranged) {
             List<Unit> enemiesWithinAttackRange = findUnitsWithin(_units, ranged, ranged.getAttackRange());
             boolean shouldRetreat = shouldRetreatBasedOnEnemyCount(enemiesWithinAttackRange);
-        
+
             if (shouldRetreat) {
                 retreatOrDefend(ranged, enemiesWithinAttackRange);
             } else {
@@ -271,12 +269,12 @@ public class LasyaBot extends AbstractionLayerAI {
                 }
             }
         }
-        
+
         private boolean shouldRetreatBasedOnEnemyCount(List<Unit> enemies) {
             // Define logic based on the count and type of enemy units
             return enemies.size() > 3;  // Example condition
         }
-        
+
         private void retreatOrDefend(Unit ranged, List<Unit> enemies) {
             // Implement retreat logic or positional holding
             List<Point> possibleRetreats = calculateRetreatPositions(ranged, enemies);
@@ -287,19 +285,19 @@ public class LasyaBot extends AbstractionLayerAI {
                 attackClosestEnemy(ranged, enemies);
             }
         }
-        
+
         private void attackClosestEnemy(Unit ranged, List<Unit> enemies) {
             Unit target = findClosest(enemies, ranged);
             if (target != null) {
                 attack(ranged, target);
             }
         }
-        
+
         private void advanceOrHold(Unit ranged) {
             // Implement logic to either advance towards the enemy or hold position
             attackWithMarch(ranged);
         }
-        
+
         private boolean isValidRetreat(int x, int y) {
             return x >= 0 && x < board.getWidth() && y >= 0 && y < board.getHeight() && game.free(x, y);
         }
@@ -316,7 +314,7 @@ public class LasyaBot extends AbstractionLayerAI {
                             .min().orElse(Double.MAX_VALUE)))
                     .orElse(null);
         }
-        
+
     }
 
     private void attackWithMarch(Unit unit) {
